@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Quality Predictor</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Air Quality Predictor</h1>
+    <div id="form-container">
+        <form action="/" id="air-quality-form" method="post">
+            <label for="temperature">Temperature:</label>
+            <input type="number" id="temperature" name="temperature" required>
+            <label for="humidity">Humidity:</label>
+            <input type="number" id="humidity" name="humidity" required>
+            <label for="wind-speed">Wind Speed:</label>
+            <input type="number" id="wind-speed" name="wind-speed" required>
+            <label for="pollutant-emissions">Pollutant Emissions:</label>
+            <input type="float" id="pollutant-emissions" name="pollutant-emissions" required>
+            <button type="submit">Predict</button>
+            {% if prediction %}
+            <p>Air_Quality: {{ prediction }}</p>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>
